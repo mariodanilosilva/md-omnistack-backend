@@ -2,7 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
+const dotenv = require('dotenv');
 
+dotenv.config();
+console.log(`URL database ${process.env.API_URL}`);
 
 const app = express();
 
@@ -18,7 +21,7 @@ io.on("connection", socket => {
 })
 
 mongoose.connect(
-    'mongodb+srv://omnistack:omnistack@cluster0-iz9ka.mongodb.net/omnistack?retryWrites=true', 
+    `mongodb+srv://${process.env.API_USER}:${process.env.API_KEY}@${process.env.API_URL}/${process.env.API_DB}?retryWrites=true`, 
     {
         useNewUrlParser: true
     }
