@@ -5,7 +5,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 
 dotenv.config();
-console.log(`URL database ${process.env.API_URL}`);
 
 const app = express();
 
